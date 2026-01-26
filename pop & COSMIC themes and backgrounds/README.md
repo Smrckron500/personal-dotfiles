@@ -1,6 +1,8 @@
 This is the theme and a few of the backgrounds I use on the COSMIC Desktop Environment
 
 For things that i dont have in this repo, These are applets that i use that arent in the standard pop os install.
+
+
 1.Numbered Workspaces applet
 
 
