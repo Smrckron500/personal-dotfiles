@@ -1,0 +1,97 @@
+{
+    "layer": "top",
+    "spacing": 0,
+    "margin": 0,
+    "reload_style_on_change": true,
+    "fixed-center": true,
+    "modules-left": [ "network", "bluetooth", "backlight", "pulseaudio", "idle_inhibitor"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "temperature", "battery", "tray"],
+    "tray": {
+        "icon-size": 20,
+        "spacing": 5,
+    },
+    "bluetooth": {
+        "format-on": "<span font-family='Arimo Nerd Font Regular'>󰂯</span>",
+        "format-off": "<span font-family='Symbols Nerd Font Mono'>󰂲</span>",
+        "format-connected": "<span font-family='Symbols Nerd Font Mono'>󰂱</span>",
+        "tooltip-format-connecte": "{device_alias}",
+        "tooltip-format-connected-battery": "{device_alias} ({device_battery_percentage}%)",
+        "on-click": "foot bluetuith"
+    },
+    "network": {
+        "format-wifi": "<span font-family='Arimo Nerd Font Regular'>󰖩</span>",
+        "format-disconnected": "<span font-family='Symbols Nerd Font Mono'>󰖪</span>",
+        "tooltip-format": "{essid}",
+        "on-click": "foot -T nmtui -o pad=0x0 nmtui"
+    },
+    "pulseaudio": {
+        "format": "<span font-family='Symbols Nerd Font Mono'>{icon}</span> {volume}%",
+        "format-muted": "<span font-family='Symbols Nerd Font Mono'>󰝟</span> {volume}%",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"],
+        },
+        "on-click": "foot pulsemixer"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "<span font-family='Symbols Nerd Font Mono'></span>",
+            "deactivated": "<span font-family='Symbols Nerd Font Mono'></span>"
+        },
+        "tooltip-format-activated": "Inhibiting",
+        "tooltip-format-deactivated": ""
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "<span font-family='Symbols Nerd Font Mono'>{icon}</span> {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "<span font-family='Arimo Nerd Font Regular'> </span>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}",
+        "format-icons": [
+            "<span>▁</span>",
+            "<span>▂</span>",
+            "<span>▃</span>",
+            "<span>▄</span>",
+            "<span>▅</span>",
+            "<span>▆</span>",
+            "<span>▇</span>",
+            "<span>█</span>"
+        ],
+        "on-click": "foot -T btop -o pad=0x0 btop",
+    },
+    "temperature": {
+	"interval": 5,
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "input-filename": "temp1_input",
+        "format": "<span font-family='Symbols Nerd Font Mono'>{icon}</span> {temperatureC}°",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 5,
+        "format": "<span font-family='Symbols Nerd Font Mono'>󰘚</span> {used:0.1f}GiB",
+        "tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB"
+    },
+    "disk": {
+        "format": "<span font-family='Symbols Nerd Font Mono'>󰋊</span> {percentage_used}%",
+        "tooltip-format": "{used} / {total}"
+    },
+    "battery": {
+	"interval": 5,
+        "states": {
+            "warning": 25,
+        },
+        "format": "<span font-family='Symbols Nerd Font Mono'>{icon}</span> {capacity}%",
+	"format-charging": "<span font-family='Symbols Nerd Font Mono'>󰂄</span>{capacity}%",
+        "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+    },
+    "clock": {
+        "format": "<span font-family='Symbols Nerd Font Mono'>󰥔</span> {:%H:%M}",
+        "tooltip-format": "{:%A, %d %B %Y}"
+    }
+}
+

@@ -1,0 +1,118 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", 
+    "position": "bottom", 
+    "height": 25, 
+    "spacing": 4, 
+
+    // Choose the order of the modules
+    "modules-left": [
+	"custom/sep",
+        "sway/workspaces",
+	"custom/sep",
+	"custom/logout",
+	"custom/shutdown",
+	"custom/restart",
+	"custom/suspend",
+	"custom/sep",
+	"sway/window",
+	"custom/sep"
+    ],
+    "modules-center": [
+    ],
+
+    "modules-right": [
+        
+        "cpu",
+        "memory",
+        "network",
+	"battery",
+	"custom/sep",
+	"clock",
+	"custom/sep"
+    ],
+
+    // Modules configuration
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}"
+        
+    },
+    "sway/window" : {
+        "max-length": 40,
+        "seperate-outputs": false
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock": {
+	"format": "{:%I:%M %p}",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "Mem: {used}GiB"
+    },
+    "disk": {
+        "interval": 60,
+        "path": "/",
+        "format": "Disk: {free}"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " {icon} {capacity}%",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "Bat {capacity}%",
+        "format-time": "{H}:{M}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format": "Online",
+        "format-disconnected": "Disconnected ⚠"
+    },
+    
+    "custom/logout": {
+    	"format": " 󰗽 ",
+	"on-click": "sway exit"	
+    },
+    
+    "custom/shutdown": {
+    	"format": " ⏻ ",
+	"on-click": "loginctl poweroff"
+    },
+	 "custom/sep": {
+        "format" : "|",
+        "interval" : 0
+    },
+    "custom/restart": {
+    	"format": "  ",
+	"on-click": "loginctl reboot"
+    },
+
+    "custom/suspend": {
+    	"format": " 󰤄 ",
+	"on-click": "loginctl suspend"
+    }
+
+}
+
+
+#transparency {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+
